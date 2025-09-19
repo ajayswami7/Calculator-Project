@@ -122,14 +122,14 @@ html {
   border-color: rgba(255, 140, 60, 0.15);
 }
 .control-btn {
-  background: linear-gradient(180deg, #f3f9ff, #eef7ff);
+  background: linear-gradient(180deg, #dbedff, #d2eaff);
   border-color: rgba(37, 99, 235, 0.08);
   font-weight: 600;
 }
 .equal-btn {
   grid-column: 4 / 5;
   grid-row: 5 / 6;
-  background: linear-gradient(180deg, #e6f0ff, #dbeafe);
+  background: linear-gradient(180deg, #bcd7ff, #d1e5ff);
   border-color: rgba(37, 99, 235, 0.15);
   font-weight: 700;
 }
