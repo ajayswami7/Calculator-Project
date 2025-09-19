@@ -6,6 +6,7 @@ It supports basic arithmetic operations like addition, subtraction, multiplicati
 
 This project is part of the Web Development Minor Project.
 
+
 🎯 Features
 
 ➕ Addition, ➖ Subtraction, ✖ Multiplication, ➗ Division
@@ -21,6 +22,7 @@ This project is part of the Web Development Minor Project.
 📱 Responsive design with CSS Flexbox/Grid & Bootstrap
 
 🔄 Works with both Decimal and Whole numbers
+
 
 🛠️ Technologies Used
 
