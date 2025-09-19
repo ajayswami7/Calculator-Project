@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calculator — Web Dev Minor Project</title>
+  <meta name="description" content="Calculator project for web development minor project.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Phudu:wght@300..900&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/9c92066612.js" crossorigin="anonymous"></script>
+
+  <!-- Custom CSS only -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="page">
+    <div class="calculator-card" role="application" aria-label="Calculator">
+      <header class="calc-header">
+        <div class="brand">
+          <h1 style="font-family: Phudu, sans-serif; font-weight: bold;"><i class="fa-solid fa-calculator"></i> MY CALC</h1>
+        </div>
+        <div class="info">
+          <small>Using <i class="fa-brands fa-html5"></i> • <i class="fa-brands fa-css3-alt"></i> • <i class="fa-brands fa-square-js"></i> </small>
+        </div>
+      </header>
+
+      <!-- Display -->
+      <section class="display" aria-live="polite">
+        <div id="previousDisplay" class="previous-display"></div>
+
+        <div id="currentDisplay " class="current-display">0</div>
+      </section>
+
+      <!-- Buttons grid -->
+      <section class="buttons-grid" aria-hidden="false">
+        <!-- Row 1 -->
+        <button class="btn control-btn" data-action="clear" aria-label="all clear">AC</button>
+        <button class="btn control-btn" data-action="backspace" aria-label="backspace">⌫</button>
+        <button class="btn control-btn" data-action="square" aria-label="square">x²</button>
+        <button class="btn op-btn" data-action="operator" data-value="/" aria-label="divide">÷</button>
+
+        <!-- Row 2 -->
+        <button class="btn num-btn" data-value="7">7</button>
+        <button class="btn num-btn" data-value="8">8</button>
+        <button class="btn num-btn" data-value="9">9</button>
+        <button class="btn op-btn" data-action="operator" data-value="*" aria-label="multiply">×</button>
+
+        <!-- Row 3 -->
+        <button class="btn num-btn" data-value="4">4</button>
+        <button class="btn num-btn" data-value="5">5</button>
+        <button class="btn num-btn" data-value="6">6</button>
+        <button class="btn op-btn" data-action="operator" data-value="-" aria-label="minus">−</button>
+
+        <!-- Row 4 -->
+        <button class="btn num-btn" data-value="1">1</button>
+        <button class="btn num-btn" data-value="2">2</button>
+        <button class="btn num-btn" data-value="3">3</button>
+        <button class="btn op-btn" data-action="operator" data-value="+" aria-label="plus">+</button>
+
+        <!-- Row 5 -->
+        <button class="btn num-btn zero-btn" data-value="0">0</button>
+        <button class="btn num-btn" data-value=".">.</button>
+        <button class="btn equal-btn" data-action="equal" aria-label="equals">=</button>
+      </section>
+
+      <footer class="note">
+        <div class="small">Tip: Support Buttons only</div>
+      </footer>
+    </div>
+  </main>
+
+  <!-- App JS -->
+  <script src="script.js"></script>
+</body>
+
+</html>
