@@ -1,14 +1,11 @@
-// Grab display elements
 const previousDisplay = document.getElementById("previousDisplay");
 const currentDisplay = document.getElementById("currentDisplay");
 
-// State
-let currentInput = "0"; // current typed number as string
-let previousValue = null; // stored number for operation
-let currentOperator = null; // pending operator: '+', '-', '*', '/',
+let currentInput = "0";
+let previousValue = null;
+let currentOperator = null;
 let resultJustComputed = false;
 
-// Update display visuals
 function updateDisplay() {
   currentDisplay.innerText = currentInput;
   if (currentOperator && previousValue !== null) {
@@ -18,19 +15,15 @@ function updateDisplay() {
   }
 }
 
-// Append number or decimal
 function appendNumber(char) {
   if (resultJustComputed) {
-    // If last action was '=', start fresh when typing a new number
     currentInput = "0";
     resultJustComputed = false;
   }
 
-  // prevent leading zeros like 00
   if (currentInput === "0" && char !== ".") {
     currentInput = char;
   } else if (char === "." && currentInput.includes(".")) {
-    // ignore multiple decimals
     return;
   } else {
     currentInput += char;
@@ -38,14 +31,12 @@ function appendNumber(char) {
   updateDisplay();
 }
 
-// Choose operator (handles chaining)
 function chooseOperator(op) {
   const currNum = parseFloat(currentInput);
 
   if (previousValue !== null && currentOperator && !resultJustComputed) {
-    // compute intermediate result for chaining (e.g., 2 + 3 + 4)
     const inter = compute();
-    if (inter === null) return; // error handled in compute
+    if (inter === null) return;
     previousValue = inter;
   } else {
     previousValue = currNum;
@@ -57,7 +48,6 @@ function chooseOperator(op) {
   updateDisplay();
 }
 
-// Compute based on previousValue and current input
 function compute() {
   if (previousValue === null || currentOperator === null)
     return parseFloat(currentInput);
@@ -74,7 +64,15 @@ function compute() {
       return null;
     }
     res = previousValue / curr;
-  } else {
+  }
+  else if (currentOperator === "%") {
+    if (curr === 0) {
+      showError("Error: Modulo by 0");
+      return null;
+    }
+    res = previousValue % curr;
+  }
+  else {
     showError("Error");
     return null;
   }
@@ -82,13 +80,11 @@ function compute() {
   return normalizeResult(res);
 }
 
-// Normalize floating point results (trim artifacts)
 function normalizeResult(num) {
   if (Math.abs(num - Math.round(num)) < 1e-12) return Math.round(num);
   return parseFloat(num.toFixed(10));
 }
 
-// Equal handler
 function handleEqual() {
   const computed = compute();
   if (computed === null) return;
@@ -99,7 +95,6 @@ function handleEqual() {
   updateDisplay();
 }
 
-// Clear all (AC)
 function clearAll() {
   currentInput = "0";
   previousValue = null;
@@ -108,7 +103,6 @@ function clearAll() {
   updateDisplay();
 }
 
-// Square current input
 function squareCurrent() {
   const num = parseFloat(currentInput);
   const sq = normalizeResult(num * num);
@@ -117,10 +111,8 @@ function squareCurrent() {
   updateDisplay();
 }
 
-// Backspace - remove last digit
 function backspace() {
   if (resultJustComputed) {
-    // If last was result, reset instead of backspacing
     currentInput = '0';
     resultJustComputed = false;
   } else {
@@ -132,24 +124,19 @@ function backspace() {
   updateDisplay();
 }
 
-
-// Setup event listeners using loops
 document.addEventListener("DOMContentLoaded", () => {
-  // Number buttons
   document.querySelectorAll(".num-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
       appendNumber(btn.getAttribute("data-value"));
     });
   });
 
-  // Operator buttons
   document.querySelectorAll(".op-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
       chooseOperator(btn.getAttribute("data-value"));
     });
   });
 
-  // Control buttons (AC, square, x^2)
   document.querySelectorAll(".control-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
       const action = btn.getAttribute("data-action");
@@ -159,9 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Equal
   document.querySelector(".equal-btn").addEventListener("click", handleEqual);
 
-  // Initialize display
   updateDisplay();
 });
