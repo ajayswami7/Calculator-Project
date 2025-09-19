@@ -7,7 +7,7 @@ It supports basic arithmetic operations like addition, subtraction, multiplicati
 This project is part of the Web Development Minor Project.
 
 
-🎯 Features
+🎯 Features:
 
 ➕ Addition, ➖ Subtraction, ✖ Multiplication, ➗ Division
 
@@ -24,7 +24,7 @@ This project is part of the Web Development Minor Project.
 🔄 Works with both Decimal and Whole numbers
 
 
-🛠️ Technologies Used
+🛠️ Technologies Used:
 
 HTML5 – for structure
 
