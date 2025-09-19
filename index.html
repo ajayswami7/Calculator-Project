@@ -1,14 +1,14 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Calculator — Web Dev Minor Project</title>
-  <meta name="description" content="Calculator project for web development minor project.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Phudu:wght@300..900&display=swap" rel="stylesheet">
+  <meta name="description" content="Calculator project for web development minor project." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Phudu:wght@300..900&display=swap" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/9c92066612.js" crossorigin="anonymous"></script>
 
   <!-- Custom CSS only -->
@@ -20,16 +20,22 @@
     <div class="calculator-card" role="application" aria-label="Calculator">
       <header class="calc-header">
         <div class="brand">
-          <h1 style="font-family: Phudu, sans-serif; font-weight: bold;"><i class="fa-solid fa-calculator"></i> MY CALC</h1>
+          <h1 style="font-family: Phudu, sans-serif; font-weight: bold">
+            <i class="fa-solid fa-calculator"></i> MY CALC
+          </h1>
         </div>
         <div class="info">
-          <small>Using <i class="fa-brands fa-html5"></i> • <i class="fa-brands fa-css3-alt"></i> • <i class="fa-brands fa-square-js"></i> </small>
+          <small>Using <i class="fa-brands fa-html5"></i> •
+            <i class="fa-brands fa-css3-alt"></i> •
+            <i class="fa-brands fa-square-js"></i>
+          </small>
         </div>
       </header>
 
       <!-- Display -->
       <section class="display" aria-live="polite">
         <div id="previousDisplay" class="previous-display"></div>
+
         <div id="currentDisplay" class="current-display">0</div>
       </section>
 
@@ -37,7 +43,7 @@
       <section class="buttons-grid" aria-hidden="false">
         <!-- Row 1 -->
         <button class="btn control-btn" data-action="clear" aria-label="all clear">AC</button>
-        <button class="btn control-btn" data-action="backspace" aria-label="backspace">⌫</button>
+        <button class="btn control-btn" data-action="operator" data-value="%" aria-label="modulo">%</button>
         <button class="btn control-btn" data-action="square" aria-label="square">x²</button>
         <button class="btn op-btn" data-action="operator" data-value="/" aria-label="divide">÷</button>
 
@@ -71,9 +77,7 @@
     </div>
   </main>
 
-  <!-- App JS -->
   <script src="script.js"></script>
 </body>
-
 
 </html>
